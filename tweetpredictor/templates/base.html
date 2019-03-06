@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <title>tweetpredictor! - {{title}}</title>
+         <!-- CSS, keywords, metadata goes here -->
+     </head>
+
+     <body>
+          <h1>tweetpredictor!</h1>
+               <p>Content for tweetpredictor will go here...</p>
+          <ul>
+               {% for user in users %}
+               <li>{{ user.name }}</li>
+               {% endfor %}
+          </ul>
+     </body>
+</html>
