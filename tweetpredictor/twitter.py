@@ -21,10 +21,11 @@ def getuser(user_name):
     TWITTER = authtwitter()
     return TWITTER.get_user(user_name)
 
-def gettweets(user_name):
+def gettweets(user_name, newest_tweet_id=None):
     """Fetch tweets for specific twitter user"""
     twitter_user = getuser(user_name)
-    return twitter_user.timeline(count=200, exclude_replies=True, include_rts=False, tweet_mode='extended')
+    return twitter_user.timeline(count=200, exclude_replies=True, include_rts=False,
+            tweet_mode='extended', since_id=newest_tweet_id)
 
 def gettwitterembedding(text):
     """Fetch twitter based embedding from basilica"""
