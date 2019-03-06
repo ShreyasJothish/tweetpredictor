@@ -33,7 +33,7 @@ def create_app():
     
         return f"Adding {user_name} failed"
     
-    @app.route('/gettweets/<user_name>')
+    @app.route('/user/<user_name>')
     def gettweets(user_name):
         """Returns tweets specific to a user"""
         user = User.query.filter(User.name == user_name).first()
