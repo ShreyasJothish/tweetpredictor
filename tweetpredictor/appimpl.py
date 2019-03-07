@@ -1,6 +1,6 @@
 """DB interface class is used to interact with DB"""
 from .models import DB, User, Tweet
-from .twitter import getuser, gettweets, gettwitterembedding
+from .api import getuser, gettweets, gettwitterembedding
 from sklearn.linear_model import LogisticRegression
 import numpy as np
 
@@ -29,7 +29,7 @@ import numpy as np
 def add_or_update_user(username):
     """Add or update a user *and* their Tweets, error if no/private user."""
     try:
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         twitter_user = getuser(username)
         db_user = (User.query.get(twitter_user.id) or
                    User(id=twitter_user.id, name=username))
