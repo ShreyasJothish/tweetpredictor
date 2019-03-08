@@ -2,11 +2,12 @@
 from flask import Flask, render_template, request
 from .models import DB, User
 from .appimpl import add_or_update_user, predict_user
+from decouple import config
 
 def create_app():
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__) 
-    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+    app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     DB.init_app(app)
 
